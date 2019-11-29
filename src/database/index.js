@@ -1,6 +1,6 @@
 const Sequlize = require("sequelize");
 const dbConfig = require("../config/database");
 
-const connetion = new Sequlize(dbConfig);
+const connetion = new Sequelize(dbConfig);
 
 module.exports = connetion;
