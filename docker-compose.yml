@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+    sql-postgres-compose:
+        image: postgres
+        environment:
+            POSTGRES_USER: docker
+            POSTGRES_PASSWORD: docker
+        #   POSTGRES_DB: guacamole_db
+        ports:
+            - "15432:5432"
+        volumes:
+            - ./src/database/PostgreSQL:/var/lib/postgresql/data
+        networks:
+            - postgres-compose-network
+
+#    teste-pgadmin-compose:
+#        image: dpage/pgadmin4
+#        environment:
+#            PGADMIN_DEFAULT_EMAIL: "renatogroff@yahoo.com.br"
+#            PGADMIN_DEFAULT_PASSWORD: "PgAdmin2019!"
+#        ports:
+#            - "16543:80"
+#        depends_on:
+#            - teste-postgres-compose
+#        networks:
+#            - postgres-compose-network
+
+networks:
+    postgres-compose-network:
+        driver: bridge
