@@ -86,3 +86,5 @@ yarn install
 ### parado em 25
 
 treta que quer dá pull
+
+trera que push pull
