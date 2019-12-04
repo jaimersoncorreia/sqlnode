@@ -88,3 +88,5 @@ yarn install
 treta que quer dá pull
 
 trera que push pull
+
+[link do vídeo](https://youtu.be/Fbu7z5dXcRs?t=4024)
