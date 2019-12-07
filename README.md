@@ -89,4 +89,4 @@ treta que quer dá pull
 
 trera que push pull
 
-[link do vídeo](https://youtu.be/Fbu7z5dXcRs?t=4780)
+[link do vídeo](https://youtu.be/Fbu7z5dXcRs?t=5173)
