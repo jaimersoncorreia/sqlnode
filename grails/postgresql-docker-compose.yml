@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  teste-postgres-compose-nodeauth:
+    image: postgres
+    environment:
+      POSTGRES_USER: "docker"
+      POSTGRES_PASSWORD: "docker"
+      POSTGRES_DB: "nodeauth"
+    ports:
+      - "15432:5432"
+    volumes:
+      - /home/programador/Desenvolvimento/bancos/Docker-Compose/PostgreSQL/nodeauth:/var/lib/postgresql/data
+    networks:
+      - postgres-compose-network
+
+  teste-pgadmin-compose:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "jaimerson_correia@hotmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "123456"
+    ports:
+      - "16543:80"
+    depends_on:
+      - teste-postgres-compose-nodeauth
+    networks:
+      - postgres-compose-network
+
+networks:
+  postgres-compose-network:
+    driver: bridge

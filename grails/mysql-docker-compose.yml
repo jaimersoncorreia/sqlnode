@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+    teste-mysql-compose:
+        image: mysql
+        command: "--default-authentication-plugin=mysql_native_password"
+        environment:
+            MYSQL_USER: "docker"
+            MYSQL_PASSWORD: "docker"
+            MYSQL_DATABASE: "nodeauth"
+            MYSQL_ROOT_PASSWORD: "1234"
+        ports:
+            - "3306:3306"
+        volumes:
+            - /home/programador/Desenvolvimento/bancos/Docker-Compose/MySQL/tamplate:/var/lib/mysql
+        networks:
+            - mysql-compose-network
+
+    teste-phpmyadmin-compose:
+        image: phpmyadmin/phpmyadmin
+        environment:
+            PMA_HOST: "teste-mysql-compose"
+        ports:
+            - "8080:80"
+        depends_on:
+            - teste-mysql-compose
+        networks:
+            - mysql-compose-network
+
+networks:
+    mysql-compose-network:
+        driver: bridge
